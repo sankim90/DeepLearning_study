@@ -92,6 +92,6 @@ for epoch in range(total_epoch):
             ax[1][i].imshow(np.reshape(samples[i], (28, 28)))
 
         plt.savefig('samples2/{}.png'.format(str(epoch).zfill(3)), bbox_inches='tight')
+        print('Process samples2/{}.png..'.format(str(epoch).zfill(3)))
         plt.close(fig)
 print('인퍼런스 완료!')
-
