@@ -13,3 +13,5 @@
 2, 3번 병행함
 
 그 후, YOLO TF으로 구현해보자
+
+![학습계획서](https://user-images.githubusercontent.com/36911945/56466784-2658e780-6451-11e9-9f62-59fae08dd56e.jpg)
