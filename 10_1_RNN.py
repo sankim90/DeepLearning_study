@@ -26,7 +26,7 @@ outputs, states = tf.nn.dynamic_rnn(cell, X, dtype=tf.float32)
 # -> [n_step, batch_size, n_hidden]
 outputs = tf.transpose(outputs, [1, 0, 2])
 # -> [batch_size, n_hidden]
-outputs = outputs[-1]
+outputs = outputs[-1] # 28, ?, 128에서 28의 index를 의미함
 
 model = tf.matmul(outputs, W) + b
 
