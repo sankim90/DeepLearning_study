@@ -70,17 +70,17 @@ def train():
 
             time_step += 1
 
-            print('게임횟수: %d 점수: %d' % (episode + 1, total_reward))
+        print('게임횟수: %d 점수: %d' % (episode + 1, total_reward))
 
-            total_reward_list.append(total_reward)
+        total_reward_list.append(total_reward)
 
-            if episode % 10 == 0:
-                summary = sess.run(summary_merged, feed_dict={rewards: total_reward_list})
-                writer.add_summary(summary, time_step)
-                total_reward_list = []
+        if episode % 10 == 0:
+            summary = sess.run(summary_merged, feed_dict={rewards: total_reward_list})
+            writer.add_summary(summary, time_step)
+            total_reward_list = []
 
-            if episode % 100 == 0:
-                saver.save(sess, 'model/dqn.ckpt', global_step=time_step)
+        if episode % 100 == 0:
+            saver.save(sess, 'model/dqn.ckpt', global_step=time_step)
 
 def replay():
     print("뇌세포 깨우는 중..")

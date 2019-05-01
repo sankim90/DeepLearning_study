@@ -52,8 +52,8 @@ class DQN:
             tf.GraphKeys.TRAINABLE_RESOURCE_VARIABLES, scope='main')
         target_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_RESOURCE_VARIABLES, scope='target')
 
-        for main_vars, target_vars in zip(main_vars, target_vars):
-            copy_op.append(target_vars.assign(main_vars.value()))
+        for main_var, target_var in zip(main_vars, target_vars):
+            copy_op.append(target_var.assign(main_var.value()))
 
         self.session.run(copy_op)
 
