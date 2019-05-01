@@ -25,8 +25,8 @@ def train():
 
     game = Game(SCREEN_WIDTH, SCREEN_HEIGHT, show_game=False)
     brain = DQN(sess, SCREEN_WIDTH, SCREEN_HEIGHT, NUM_ACTION)
-    reward = tf.placeholder(tf.float32, [None])
-    tf.summary.scalar('avg.reward/ep.', tf.reduce_mean(reward))
+    rewards = tf.placeholder(tf.float32, [None])
+    tf.summary.scalar('avg.reward/ep.', tf.reduce_mean(rewards))
 
     saver = tf.train.Saver()
     sess.run(tf.global_variables_initializer())
@@ -75,7 +75,7 @@ def train():
             total_reward_list.append(total_reward)
 
             if episode % 10 == 0:
-                summary = sess.run(summary_merged, feed_dict={reward: total_reward_list})
+                summary = sess.run(summary_merged, feed_dict={rewards: total_reward_list})
                 writer.add_summary(summary, time_step)
                 total_reward_list = []
 
